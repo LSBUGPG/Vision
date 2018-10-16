@@ -38,7 +38,9 @@ We could add the trigger detection behaviour right away, but it would be nice to
     }
 ```
 
-Now switch back to the Unity editor. You should see red lines showing both the view distance and the angles of the field of view. It's easier to see if you use a top down orthographic view. You can change the view distance by changing the `SphereCollision`'s `radius` in the inspector window. And you can change the field of view by changing the `fov` parameter in the `Vision` script.
+Now switch back to the Unity editor. You should see red lines showing both the view distance and the angles of the field of view. It's easier to see if you use a top down orthographic view.
+!(https://raw.githubusercontent.com/LSBUGPG/Vision/master/ViewCone.png "Top down scene view of the `Guard` object")
+You can change the view distance by changing the `SphereCollision`'s `radius` in the inspector window. And you can change the field of view by changing the `fov` parameter in the `Vision` script.
 
 ## 3. Detect the player
 
