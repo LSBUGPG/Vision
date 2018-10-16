@@ -366,6 +366,7 @@ GameObject:
   - component: {fileID: 1274187289}
   - component: {fileID: 1274187288}
   - component: {fileID: 1274187290}
+  - component: {fileID: 1274187291}
   m_Layer: 0
   m_Name: Guard
   m_TagString: Untagged
@@ -463,7 +464,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e92573c3a0324599be906afd1f9db2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  alertedMaterial: {fileID: 2100000, guid: c86355c5c14974d158994e0bce7f2661, type: 2}
   viewDistance: {fileID: 1274187288}
   fov: 90
 --- !u!82 &1274187290
@@ -561,3 +561,15 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1274187291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1274187283}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93808d4664fca4d0794d594b3a67fa38, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  alertedMaterial: {fileID: 2100000, guid: c86355c5c14974d158994e0bce7f2661, type: 2}

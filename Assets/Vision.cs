@@ -3,22 +3,16 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-[RequireComponent(typeof(AudioSource))]
-[RequireComponent(typeof(Renderer))]
+[RequireComponent(typeof(Alert))]
 public class Vision : MonoBehaviour
 {
-	public Material alertedMaterial;
-	public SphereCollider viewDistance;
-	AudioSource audioSource;
-	Renderer boxRenderer;
-	bool alerted = false;
-	public float fov = 90.0f;
+    public SphereCollider viewDistance;
+	Alert alert;
+    public float fov = 90.0f;
 
 	void Awake()
 	{
-		viewDistance = GetComponent<SphereCollider>();
-		audioSource = GetComponent<AudioSource>();
-		boxRenderer = GetComponent<Renderer>();
+		alert = GetComponent<Alert>();
 	}
 
     void OnDrawGizmos()
@@ -29,25 +23,15 @@ public class Vision : MonoBehaviour
         Gizmos.DrawWireSphere(Vector3.zero, viewDistance.radius);
     }
 
-	void OnTriggerStay(Collider thing)
-	{
-		if (thing.CompareTag("Player"))
-		{
-			Vector3 vectorToPlayer = thing.transform.position - transform.position;
-			if (Vector3.Angle(vectorToPlayer, transform.forward) < 0.5f * fov)
-			{
-				Alert();
-			}
-		}
-	}
-
-    void Alert()
+    void OnTriggerStay(Collider thing)
     {
-		if (!alerted)
-		{
-			boxRenderer.material = alertedMaterial;
-			audioSource.Play();
-			alerted = true;
-		}
+        if (thing.CompareTag("Player"))
+        {
+            Vector3 vectorToPlayer = thing.transform.position - transform.position;
+            if (Vector3.Angle(vectorToPlayer, transform.forward) < 0.5f * fov)
+            {
+				alert.enabled = true;
+            }
+        }
     }
 }
