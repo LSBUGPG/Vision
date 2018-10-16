@@ -465,6 +465,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewDistance: {fileID: 1274187288}
+  alert: {fileID: 1274187291}
   fov: 90
 --- !u!82 &1274187290
 AudioSource:

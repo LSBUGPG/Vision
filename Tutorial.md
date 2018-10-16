@@ -91,25 +91,12 @@ You can test this alert works, by running the game and ticking the box next to t
 
 ## 5. Combining the components
 
-In the `Vision` script add another require component instruction:
+In the `Vision` script add a variable to hold the alert script:
 ```
-    [RequireComponent(typeof(Alert))]
-```
-
-Also add a variable to hold the alert script:
-```
-    Alert alert;
+    public Behaviour alert;
 ```
 
-And a function to initialise the variable value.
-```
-	void Awake()
-	{
-		alert = GetComponent<Alert>();
-	}
-```
-
-Finally, change the line:
+Switch to the Unity editor and drag the alert behaviour onto the `alert` slot of the `Vision` behaviour. And finally, change the line:
 ```
     Debug.Log("Alert");
 ```

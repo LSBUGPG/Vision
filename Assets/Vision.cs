@@ -3,17 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(SphereCollider))]
-[RequireComponent(typeof(Alert))]
 public class Vision : MonoBehaviour
 {
     public SphereCollider viewDistance;
-	Alert alert;
+	public Behaviour alert;
     public float fov = 90.0f;
-
-	void Awake()
-	{
-		alert = GetComponent<Alert>();
-	}
 
     void OnDrawGizmos()
     {
