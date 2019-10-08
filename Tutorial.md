@@ -6,7 +6,7 @@ This shows how to make simple view cone detection.
 
 Start by creating a new scene called `Vision`.
 
-Add a 3D Box named `Guard`, and a 3D Box named `Player`.
+Add a 3D Cube named `Guard`, and a 3D Cube named `Player`.
 
 Make a new `Blue` material and drag it onto `Guard`, then make a new `Green` material and drag it onto the `Player`.
 
