@@ -15,7 +15,7 @@ Make a new `Blue` material and drag it onto `Guard`, then make a new `Green` mat
 Create a new script called `Vision`.
 
 We're going to make the detection out of two pieces: a sphere collider trigger to detect the player entering the view radius, and an angle calculation to detect when the player is within the viewing angle. To enfore the requirement of a SphereCollider, add a `RequireComponent` instruction above the class definition and add a variable to hold the `SphereCollider` called `viewDistance`:
-```
+```.cs
 [RequireComponent(typeof(SphereCollider))]
 public class Vision : MonoBehaviour
 {
@@ -26,7 +26,7 @@ public class Vision : MonoBehaviour
 Now add the Vision script to the `Guard` object. This should automatically add a `SphereCollider` as well. Set the `SphereCollider` radius to 10 and tick the `Is Trigger` box. Drag the collider component onto the `viewDistance` slot of the `Vision` behaviour.
 
 We could add the trigger detection behaviour right away, but it would be nice to be able to see the view cone at least within the editor. To do this add a variable to hold the field of view and a function called `OnDrawGizmos()`:
-```
+```.cs
     public float fov = 90.0f;
 
     void OnDrawGizmos()
@@ -47,7 +47,7 @@ You can change the view distance by changing the `SphereCollision`'s `radius` in
 ## 3. Detect the player
 
 Change the tag of the `Player` object to `Player` and add a `Rigidbody` component with `Use Gravity` off and `Is Kinematic` on. The `Rigidbody` component is needed to cause collision detection, and the tag is required to identify the player object. With these in place, you can add the trigger code to the `Vision` script:
-```
+```.cs
     void OnTriggerStay(Collider thing)
     {
         if (thing.CompareTag("Player"))
@@ -68,7 +68,7 @@ Test this out by running the game and dragging the player object into the range 
 You'll need to create an alert sound effect and at it to your assets. Add an `AudioSource` component, untick the `Play On Awake` option, and assign your sound effect to the `AudioClip` slot. Also, create a `Red` material.
 
 Create a new script called `Alert` and enter the following code:
-```
+```.cs
 [RequireComponent(typeof(AudioSource))]
 [RequireComponent(typeof(Renderer))]
 public class Alert : MonoBehaviour
@@ -92,16 +92,16 @@ You can test this alert works, by running the game and ticking the box next to t
 ## 5. Combining the components
 
 In the `Vision` script add a variable to hold the alert script:
-```
+```.cs
     public Behaviour alert;
 ```
 
 Switch to the Unity editor and drag the alert behaviour onto the `alert` slot of the `Vision` behaviour. And finally, change the line:
-```
+```.cs
     Debug.Log("Alert");
 ```
 to:
-```
+```.cs
     alert.enabled = true;
 ```
 
